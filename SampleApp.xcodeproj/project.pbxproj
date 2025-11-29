@@ -10,9 +10,25 @@
 		183D57E02EDB09BC0014449D /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		183D57EF2EDB0A030014449D /* Exceptions for "SampleApp" folder in "SampleApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core,
+				DesignSystem,
+				Domain,
+				Features,
+			);
+			target = 183D57DF2EDB09BC0014449D /* SampleApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		183D57E22EDB09BC0014449D /* SampleApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				183D57EF2EDB0A030014449D /* Exceptions for "SampleApp" folder in "SampleApp" target */,
+			);
 			path = SampleApp;
 			sourceTree = "<group>";
 		};
