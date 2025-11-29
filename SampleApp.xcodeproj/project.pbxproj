@@ -76,6 +76,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				18EEB3F72EDB15520023A878 /* PBXTargetDependency */,
+				18EEB3F52EDB154F0023A878 /* PBXTargetDependency */,
+				18EEB3F32EDB154B0023A878 /* PBXTargetDependency */,
+				18EEB3F12EDB15480023A878 /* PBXTargetDependency */,
+				18EEB3EF2EDB152E0023A878 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				183D57E22EDB09BC0014449D /* SampleApp */,
@@ -140,6 +145,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18EEB3EF2EDB152E0023A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 18EEB3EE2EDB152E0023A878 /* Features */;
+		};
+		18EEB3F12EDB15480023A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 18EEB3F02EDB15480023A878 /* Core */;
+		};
+		18EEB3F32EDB154B0023A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 18EEB3F22EDB154B0023A878 /* Data */;
+		};
+		18EEB3F52EDB154F0023A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 18EEB3F42EDB154F0023A878 /* DesignSystem */;
+		};
+		18EEB3F72EDB15520023A878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 18EEB3F62EDB15520023A878 /* Domain */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		183D57E92EDB09BD0014449D /* Debug */ = {
@@ -351,6 +379,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18EEB3EE2EDB152E0023A878 /* Features */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Features;
+		};
+		18EEB3F02EDB15480023A878 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		18EEB3F22EDB154B0023A878 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		18EEB3F42EDB154F0023A878 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+		18EEB3F62EDB15520023A878 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 183D57D82EDB09BC0014449D /* Project object */;
 }
