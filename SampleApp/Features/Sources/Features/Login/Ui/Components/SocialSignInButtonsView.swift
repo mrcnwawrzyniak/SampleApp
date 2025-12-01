@@ -48,7 +48,7 @@ public struct SocialSignInButtonsView: View {
 
             }
             .buttonStyle(.bordered)
-            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+            
         }
     }
 }

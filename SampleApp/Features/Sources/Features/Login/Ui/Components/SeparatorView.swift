@@ -10,7 +10,7 @@ import SwiftUI
 public struct SeparatorView: View {
     var label: String = "lub"
 
-    public init(label: String = "lub") {
+    public init(label: String = "or") {
         self.label = label
     }
 

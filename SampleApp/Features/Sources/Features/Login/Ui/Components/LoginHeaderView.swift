@@ -11,7 +11,7 @@ public struct LoginHeaderView: View {
     public init() {}
 
     public var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 20) {
             Text("Sign in")
                 .font(.largeTitle).bold()
             Text("Insert your username and password here")

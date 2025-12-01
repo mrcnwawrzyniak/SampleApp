@@ -9,6 +9,11 @@ import SwiftUI
 
 public struct LoginFieldsView: View {
     @ObservedObject public var vm: LoginViewModel
+    @FocusState private var focusedField: Field?
+    
+    enum Field {
+        case email, password
+    }
 
     public init(vm: LoginViewModel) {
         self.vm = vm
@@ -23,6 +28,11 @@ public struct LoginFieldsView: View {
                 .autocorrectionDisabled()
                 .padding(12)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .focused($focusedField, equals: .email)
+                .submitLabel(.next)
+                .onSubmit {
+                    focusedField = .password
+                }
 
             HStack(spacing: 8) {
                 Group {
@@ -35,6 +45,8 @@ public struct LoginFieldsView: View {
                 .textContentType(.password)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
+                .focused($focusedField, equals: .password)
+                .submitLabel(.done)
 
                 Button(action: { vm.state.isSecure.toggle() }) {
                     Image(systemName: vm.state.isSecure ? "eye.slash" : "eye")
@@ -44,6 +56,12 @@ public struct LoginFieldsView: View {
             }
             .padding(12)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+        .onAppear {
+            // Automatyczny focus na email po 0.5 sekundy
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                focusedField = .email
+            }
         }
     }
 }

@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		18E484982EDD9AB7003542E6 /* Features in Frameworks */ = {isa = PBXBuildFile; productRef = 18E484972EDD9AB7003542E6 /* Features */; };
+		18E4849A2EDD9ABA003542E6 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 18E484992EDD9ABA003542E6 /* Domain */; };
+		18E4849C2EDD9ABC003542E6 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849B2EDD9ABC003542E6 /* DesignSystem */; };
+		18E4849E2EDD9ABE003542E6 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849D2EDD9ABE003542E6 /* Core */; };
+		18E484A02EDD9AC1003542E6 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849F2EDD9AC1003542E6 /* Data */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		183D57E02EDB09BC0014449D /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -40,6 +48,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E4849C2EDD9ABC003542E6 /* DesignSystem in Frameworks */,
+				18E4849E2EDD9ABE003542E6 /* Core in Frameworks */,
+				18E484A02EDD9AC1003542E6 /* Data in Frameworks */,
+				18E4849A2EDD9ABA003542E6 /* Domain in Frameworks */,
+				18E484982EDD9AB7003542E6 /* Features in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				183D57E22EDB09BC0014449D /* SampleApp */,
+				18E484962EDD9AB7003542E6 /* Frameworks */,
 				183D57E12EDB09BC0014449D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +74,13 @@
 				183D57E02EDB09BC0014449D /* SampleApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		18E484962EDD9AB7003542E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +108,11 @@
 			);
 			name = SampleApp;
 			packageProductDependencies = (
+				18E484972EDD9AB7003542E6 /* Features */,
+				18E484992EDD9ABA003542E6 /* Domain */,
+				18E4849B2EDD9ABC003542E6 /* DesignSystem */,
+				18E4849D2EDD9ABE003542E6 /* Core */,
+				18E4849F2EDD9AC1003542E6 /* Data */,
 			);
 			productName = SampleApp;
 			productReference = 183D57E02EDB09BC0014449D /* SampleApp.app */;
@@ -381,6 +407,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		18E484972EDD9AB7003542E6 /* Features */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Features;
+		};
+		18E484992EDD9ABA003542E6 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		18E4849B2EDD9ABC003542E6 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+		18E4849D2EDD9ABE003542E6 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		18E4849F2EDD9AC1003542E6 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
 		18EEB3EE2EDB152E0023A878 /* Features */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Features;
