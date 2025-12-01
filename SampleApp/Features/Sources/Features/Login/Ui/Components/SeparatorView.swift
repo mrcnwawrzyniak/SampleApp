@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct SeparatorView: View {
+public struct SeparatorView: View {
     var label: String = "lub"
 
-    var body: some View {
+    public init(label: String = "lub") {
+        self.label = label
+    }
+
+    public var body: some View {
         HStack {
             Rectangle().fill(.quaternary).frame(height: 1)
             Text(label)

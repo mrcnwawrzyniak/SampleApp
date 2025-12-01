@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct LoginHeaderView: View {
-    var body: some View {
+public struct LoginHeaderView: View {
+    public init() {}
+
+    public var body: some View {
         VStack(spacing: 8) {
-            Text("Logowanie")
+            Text("Sign in")
                 .font(.largeTitle).bold()
-            Text("Wpisz e‑mail i hasło lub skorzystaj z logowania przez Apple / Google")
+            Text("Insert your username and password here")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

@@ -8,21 +8,36 @@
 import Foundation
 
 @MainActor
-final class LoginViewModel: ObservableObject {
-    @Published private(set) var state = LoginState()
-    
-    func sendLogin(_ action: LoginAction) {
+public final class LoginViewModel: ObservableObject {
+    @Published public var state = LoginState()
+
+    public init() {}
+
+    public func sendLogin(_ action: LoginAction) {
         LoginReducer.reduce(state: &state, action: action)
-        
-       switch action {
-            case .loginTapped:
-                login()
-            default:
-                break
-       }
+
+        switch action {
+        case .loginTapped:
+            login()
+        case .googleSignInTapped:
+            handleGoogleSignIn()
+        default:
+            break
+        }
     }
-    
+
     private func login() {
-        print("Login action triggered")
+        Task {
+            do {
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                sendLogin(.loginSuccess)
+            } catch {
+                sendLogin(.loginFailure(error.localizedDescription))
+            }
+        }
+    }
+
+    private func handleGoogleSignIn() {
+        sendLogin(.loginFailure("Google Sign-In not implemented yet"))
     }
 }

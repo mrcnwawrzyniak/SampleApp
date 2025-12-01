@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct AuthErrorView: View {
+public struct AuthErrorView: View {
     let message: String
 
-    var body: some View {
+    public init(message: String) {
+        self.message = message
+    }
+
+    public var body: some View {
         Text(message)
             .font(.footnote)
             .foregroundStyle(.red)

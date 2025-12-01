@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Features
 
 @main
 struct SampleAppApp: App {
     var body: some Scene {
         WindowGroup {
-        
+            NavigationStack {
+                LoginView()
+            }
         }
     }
 }

@@ -8,24 +8,24 @@
 import SwiftUI
 import AuthenticationServices
 
-struct LoginView: View {
+public struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
 
-    var body: some View {
+    public init() {}
+
+    public var body: some View {
         VStack(spacing: 20) {
             LoginHeaderView()
 
-           
-
-            if let message = viewModel.errorMessage {
+            if let message = viewModel.state.error {
                 AuthErrorView(message: message)
             }
 
             Button {
-                Task { await viewModel.performEmailLogin() }
+                viewModel.sendLogin(.loginTapped)
             } label: {
                 HStack {
-                    if viewModel.isLoading { ProgressView().tint(.white) }
+                    if viewModel.state.isLoading { ProgressView().tint(.white) }
                     Text("Zaloguj się")
                         .fontWeight(.semibold)
                 }
@@ -33,17 +33,16 @@ struct LoginView: View {
                 .padding(.vertical, 12)
             }
             .buttonStyle(.borderedProminent)
-            .disabled(!viewModel.canSubmit || viewModel.isLoading)
+            .disabled(viewModel.state.isLoading)
 
             SeparatorView()
 
             SocialSignInButtonsView { request in
                 request.requestedScopes = [.fullName, .email]
             } onAppleCompletion: { result in
-                viewModel.handleAppleSignIn(result)
+                viewModel.sendLogin(.appleSignInCompleted(result))
             } onGoogleTap: {
-                // TODO: Integrate Google Sign-In SDK (GoogleSignIn)
-                viewModel.errorMessage = nil
+                viewModel.sendLogin(.googleSignInTapped)
             }
 
             Spacer(minLength: 0)

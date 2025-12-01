@@ -8,12 +8,22 @@
 import SwiftUI
 import AuthenticationServices
 
-struct SocialSignInButtonsView: View {
+public struct SocialSignInButtonsView: View {
     var onAppleRequest: (ASAuthorizationAppleIDRequest) -> Void
     var onAppleCompletion: (Result<ASAuthorization, Error>) -> Void
     var onGoogleTap: () -> Void
 
-    var body: some View {
+    public init(
+        onAppleRequest: @escaping (ASAuthorizationAppleIDRequest) -> Void,
+        onAppleCompletion: @escaping (Result<ASAuthorization, Error>) -> Void,
+        onGoogleTap: @escaping () -> Void
+    ) {
+        self.onAppleRequest = onAppleRequest
+        self.onAppleCompletion = onAppleCompletion
+        self.onGoogleTap = onGoogleTap
+    }
+
+    public var body: some View {
         VStack(spacing: 12) {
             SignInWithAppleButton(.signIn) { request in
                 onAppleRequest(request)
@@ -27,17 +37,18 @@ struct SocialSignInButtonsView: View {
             Button(action: onGoogleTap) {
                 HStack(spacing: 8) {
                     Image(systemName: "g.circle.fill")
-                        .symbolRenderingMode(.multicolor)
-                        .imageScale(.large)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
                     Text("Zaloguj się przez Google")
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(Color(uiColor: .systemBackground))
+                .padding(.vertical, 6)
+
             }
             .buttonStyle(.bordered)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
         }
     }
 }
