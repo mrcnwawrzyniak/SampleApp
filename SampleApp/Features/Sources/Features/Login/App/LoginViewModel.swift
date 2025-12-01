@@ -13,16 +13,16 @@ public final class LoginViewModel: ObservableObject {
 
     public init() {}
 
-    public func sendLogin(_ action: LoginAction) {
+    public func onAction(_ action: LoginAction) {
         LoginReducer.reduce(state: &state, action: action)
 
         switch action {
-        case .loginTapped:
-            login()
-        case .googleSignInTapped:
-            handleGoogleSignIn()
-        default:
-            break
+            case .loginTapped:
+                login()
+            case .googleSignInTapped:
+                handleGoogleSignIn()
+            default:
+                break
         }
     }
 
@@ -30,14 +30,14 @@ public final class LoginViewModel: ObservableObject {
         Task {
             do {
                 try await Task.sleep(nanoseconds: 1_000_000_000)
-                sendLogin(.loginSuccess)
+                onAction(.loginSuccess)
             } catch {
-                sendLogin(.loginFailure(error.localizedDescription))
+                onAction(.loginFailure(error.localizedDescription))
             }
         }
     }
 
     private func handleGoogleSignIn() {
-        sendLogin(.loginFailure("Google Sign-In not implemented yet"))
+        onAction(.loginFailure("Google Sign-In not implemented yet"))
     }
 }

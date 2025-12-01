@@ -25,7 +25,7 @@ public struct LoginView: View {
                 LoginFieldsView(vm: viewModel)
                 
                 Button {
-                    viewModel.sendLogin(.loginTapped)
+                    viewModel.onAction(.loginTapped)
                 } label: {
                     HStack {
                         if viewModel.state.isLoading { ProgressView().tint(.white) }
@@ -43,9 +43,9 @@ public struct LoginView: View {
                 SocialSignInButtonsView { request in
                     request.requestedScopes = [.fullName, .email]
                 } onAppleCompletion: { result in
-                    viewModel.sendLogin(.appleSignInCompleted(result))
+                    viewModel.onAction(.appleSignInCompleted(result))
                 } onGoogleTap: {
-                    viewModel.sendLogin(.googleSignInTapped)
+                    viewModel.onAction(.googleSignInTapped)
                 }
             }
             .padding()
