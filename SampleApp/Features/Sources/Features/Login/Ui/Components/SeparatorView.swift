@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct SeparatorView: View {
-    var label: String = "lub"
+    var label: String
 
-    public init(label: String = "or") {
-        self.label = label
+    public init(label: String? = nil) {
+        self.label = label ?? String(localized: "login.separator.divider")
     }
 
     public var body: some View {

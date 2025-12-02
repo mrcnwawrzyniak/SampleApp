@@ -29,7 +29,7 @@ public struct LoginView: View {
                 } label: {
                     HStack {
                         if viewModel.state.isLoading { ProgressView().tint(.white) }
-                        Text("Zaloguj się")
+                        Text(String(localized: "login.button.login"))
                             .fontWeight(.semibold)
                     }
                     .frame(maxWidth: .infinity)

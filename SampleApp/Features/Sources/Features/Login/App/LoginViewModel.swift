@@ -38,6 +38,6 @@ public final class LoginViewModel: ObservableObject {
     }
 
     private func handleGoogleSignIn() {
-        onAction(.loginFailure("Google Sign-In not implemented yet"))
+        onAction(.loginFailure(String(localized: "login.error.googleNotImplemented")))
     }
 }

@@ -12,9 +12,9 @@ public struct LoginHeaderView: View {
 
     public var body: some View {
         VStack(spacing: 20) {
-            Text("Sign in")
+            Text(String(localized: "login.header.title"))
                 .font(.largeTitle).bold()
-            Text("Insert your username and password here")
+            Text(String(localized: "login.header.subtitle"))
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

@@ -14,12 +14,18 @@ public struct DashboardView : View {
     
     public var body: some View {
         VStack(spacing: 30){
-            Button("Show Logout Alert dialog", action: {
+            Button(String(localized: "dashboard.button.logoutAlert"), action: {
                 viewModel.onAction(.ShowLogoutAlertDialog)
             })
-            Button("Show Settings Modal", action: {
+            Button(String(localized: "dashboard.button.settings"), action: {
                 viewModel.onAction(.ShowSettings)
             })
+        }
+        .alert(String(localized: "dashboard.alert.confirmLogout"), isPresented: $viewModel.state.isLogoutAlertDialogVisible) {
+            Button(String(localized: "dashboard.alert.button.cancel"), role: .cancel) {}
+            Button(String(localized: "dashboard.alert.button.logout"), role: .destructive) {
+                // Obsługa wylogowania
+            }
         }
     }
 }
@@ -27,4 +33,3 @@ public struct DashboardView : View {
 #Preview("DashboardView"){
     DashboardView()
 }
-

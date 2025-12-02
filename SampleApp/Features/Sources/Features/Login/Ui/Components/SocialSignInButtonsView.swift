@@ -40,7 +40,7 @@ public struct SocialSignInButtonsView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
-                    Text("Zaloguj się przez Google")
+                    Text(String(localized: "log_in_via_google"))
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)

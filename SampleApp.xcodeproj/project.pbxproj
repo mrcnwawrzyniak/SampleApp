@@ -12,6 +12,8 @@
 		18E4849C2EDD9ABC003542E6 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849B2EDD9ABC003542E6 /* DesignSystem */; };
 		18E4849E2EDD9ABE003542E6 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849D2EDD9ABE003542E6 /* Core */; };
 		18E484A02EDD9AC1003542E6 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 18E4849F2EDD9AC1003542E6 /* Data */; };
+		18ED97D92EDF0AAB0062ECF7 /* SwiftGenCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 18ED97D82EDF0AAB0062ECF7 /* SwiftGenCLI */; };
+		18ED97DB2EDF0AAB0062ECF7 /* SwiftGenKit in Frameworks */ = {isa = PBXBuildFile; productRef = 18ED97DA2EDF0AAB0062ECF7 /* SwiftGenKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 				18E4849E2EDD9ABE003542E6 /* Core in Frameworks */,
 				18E484A02EDD9AC1003542E6 /* Data in Frameworks */,
 				18E4849A2EDD9ABA003542E6 /* Domain in Frameworks */,
+				18ED97D92EDF0AAB0062ECF7 /* SwiftGenCLI in Frameworks */,
+				18ED97DB2EDF0AAB0062ECF7 /* SwiftGenKit in Frameworks */,
 				18E484982EDD9AB7003542E6 /* Features in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +117,8 @@
 				18E4849B2EDD9ABC003542E6 /* DesignSystem */,
 				18E4849D2EDD9ABE003542E6 /* Core */,
 				18E4849F2EDD9AC1003542E6 /* Data */,
+				18ED97D82EDF0AAB0062ECF7 /* SwiftGenCLI */,
+				18ED97DA2EDF0AAB0062ECF7 /* SwiftGenKit */,
 			);
 			productName = SampleApp;
 			productReference = 183D57E02EDB09BC0014449D /* SampleApp.app */;
@@ -134,14 +140,17 @@
 				};
 			};
 			buildConfigurationList = 183D57DB2EDB09BC0014449D /* Build configuration list for PBXProject "SampleApp" */;
-			developmentRegion = en;
+			developmentRegion = pl;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				pl,
 			);
 			mainGroup = 183D57D72EDB09BC0014449D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				18ED97D72EDF0AAB0062ECF7 /* XCRemoteSwiftPackageReference "SwiftGen" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 183D57E12EDB09BC0014449D /* Products */;
 			projectDirPath = "";
@@ -406,6 +415,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		18ED97D72EDF0AAB0062ECF7 /* XCRemoteSwiftPackageReference "SwiftGen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftGen/SwiftGen";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		18E484972EDD9AB7003542E6 /* Features */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -426,6 +446,16 @@
 		18E4849F2EDD9AC1003542E6 /* Data */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Data;
+		};
+		18ED97D82EDF0AAB0062ECF7 /* SwiftGenCLI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18ED97D72EDF0AAB0062ECF7 /* XCRemoteSwiftPackageReference "SwiftGen" */;
+			productName = SwiftGenCLI;
+		};
+		18ED97DA2EDF0AAB0062ECF7 /* SwiftGenKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18ED97D72EDF0AAB0062ECF7 /* XCRemoteSwiftPackageReference "SwiftGen" */;
+			productName = SwiftGenKit;
 		};
 		18EEB3EE2EDB152E0023A878 /* Features */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -16,7 +16,6 @@ public enum LoginAction: Equatable {
     case appleSignInCompleted(Result<ASAuthorization, Error>)
     case googleSignInTapped
 
-    // Ręczna implementacja == bo Result<ASAuthorization, Error> nie jest Equatable
     public static func == (lhs: LoginAction, rhs: LoginAction) -> Bool {
         switch (lhs, rhs) {
         case (.emailChanged(let a), .emailChanged(let b)): 
@@ -30,7 +29,7 @@ public enum LoginAction: Equatable {
         case (.loginFailure(let a), .loginFailure(let b)): 
             return a == b
         case (.appleSignInCompleted, .appleSignInCompleted): 
-            return true  // Ignorujemy zawartość Result w porównaniu
+            return true
         case (.googleSignInTapped, .googleSignInTapped): 
             return true
         default: 

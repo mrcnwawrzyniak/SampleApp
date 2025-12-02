@@ -23,5 +23,5 @@ public struct AuthErrorView: View {
 }
 
 #Preview {
-    AuthErrorView(message: "Błąd logowania")
+    AuthErrorView(message: String(localized: "login.error.loginFailed"))
 }
