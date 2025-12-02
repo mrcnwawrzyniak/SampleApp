@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 public struct AuthErrorView: View {
     let message: String
@@ -23,5 +24,5 @@ public struct AuthErrorView: View {
 }
 
 #Preview {
-    AuthErrorView(message: String(localized: "login.error.loginFailed"))
+    AuthErrorView(message: L10n.Login.Error.loginFailed)
 }

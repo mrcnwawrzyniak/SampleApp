@@ -1,0 +1,9 @@
+xcstrings:
+  inputs:
+    - Sources/DesignSystem/Resources/Localization
+  outputs:
+    - templateName: structured-swift5
+      output: Sources/DesignSystem/Generated/Strings.swift
+      params:
+        enumName: L10n
+        publicAccess: true

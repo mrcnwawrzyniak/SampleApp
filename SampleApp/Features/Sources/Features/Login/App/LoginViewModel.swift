@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DesignSystem
 
 @MainActor
 public final class LoginViewModel: ObservableObject {
@@ -38,6 +39,6 @@ public final class LoginViewModel: ObservableObject {
     }
 
     private func handleGoogleSignIn() {
-        onAction(.loginFailure(String(localized: "login.error.googleNotImplemented")))
+        onAction(.loginFailure(L10n.Login.Error.googleNotImplemented))
     }
 }

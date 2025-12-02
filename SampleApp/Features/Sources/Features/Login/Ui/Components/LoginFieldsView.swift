@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 public struct LoginFieldsView: View {
     @ObservedObject public var vm: LoginViewModel
@@ -21,7 +22,7 @@ public struct LoginFieldsView: View {
     
     public var body: some View {
         VStack(spacing: 12) {
-            TextField(String(localized: "E-mail"), text: $vm.state.email)
+            TextField(L10n.email, text: $vm.state.email)
                 .textContentType(.emailAddress)
                 .keyboardType(.emailAddress)
                 .textInputAutocapitalization(.never)
@@ -37,9 +38,9 @@ public struct LoginFieldsView: View {
             HStack(spacing: 8) {
                 Group {
                     if vm.state.isSecure {
-                        SecureField(String(localized: "Password"), text: $vm.state.password)
+                        SecureField(L10n.password, text: $vm.state.password)
                     } else {
-                        TextField(String(localized: "Password"), text: $vm.state.password)
+                        TextField(L10n.password, text: $vm.state.password)
                     }
                 }
                 .textContentType(.password)

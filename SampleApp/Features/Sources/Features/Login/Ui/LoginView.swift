@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import DesignSystem
 
 public struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
@@ -29,7 +30,7 @@ public struct LoginView: View {
                 } label: {
                     HStack {
                         if viewModel.state.isLoading { ProgressView().tint(.white) }
-                        Text(String(localized: "login.button.login"))
+                        Text(L10n.Login.Button.login)
                             .fontWeight(.semibold)
                     }
                     .frame(maxWidth: .infinity)

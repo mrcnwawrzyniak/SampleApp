@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import DesignSystem
 
 public struct SocialSignInButtonsView: View {
     var onAppleRequest: (ASAuthorizationAppleIDRequest) -> Void
@@ -40,7 +41,7 @@ public struct SocialSignInButtonsView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
-                    Text(String(localized: "log_in_via_google"))
+                    Text(L10n.logInViaGoogle)
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)

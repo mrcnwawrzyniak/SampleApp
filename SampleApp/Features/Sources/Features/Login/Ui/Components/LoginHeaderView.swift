@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 public struct LoginHeaderView: View {
     public init() {}
 
     public var body: some View {
         VStack(spacing: 20) {
-            Text(String(localized: "login.header.title"))
+            Text(L10n.Login.Header.title)
                 .font(.largeTitle).bold()
-            Text(String(localized: "login.header.subtitle"))
+            Text(L10n.Login.Header.subtitle)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

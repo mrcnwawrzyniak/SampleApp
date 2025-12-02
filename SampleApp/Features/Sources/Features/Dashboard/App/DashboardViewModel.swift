@@ -25,9 +25,6 @@ public final class DashboardViewModel : ObservableObject {
             if !self.state.isSettingsVisible {
                 self.state.isSettingsVisible = true
             }
-            
-        default:
-            break
         }
     }
 }
