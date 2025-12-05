@@ -8,4 +8,5 @@
 public enum DashboardAction: Equatable {
     case ShowLogoutAlertDialog
     case ShowSettings
+    case Logout
 }

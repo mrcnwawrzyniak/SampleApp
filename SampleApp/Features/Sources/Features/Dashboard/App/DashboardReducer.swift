@@ -12,7 +12,8 @@ struct DashboardReducer {
             state.isLogoutAlertDialogVisible.toggle()
         case .ShowSettings:
             state.isSettingsVisible.toggle()
-        
+        case .Logout:
+            break
         }
     }
 }

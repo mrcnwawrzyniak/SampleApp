@@ -18,6 +18,8 @@ public final class LoginViewModel: ObservableObject {
     @Injected(\.googleSignInUseCase) private var googleSignInUseCase
     @Injected(\.credentialsValidator) private var credentialsValidator
 
+    public var onLoginSuccess: ((User) -> Void)?
+
     public init() {}
 
     public func onAction(_ action: LoginAction) {
@@ -51,6 +53,7 @@ public final class LoginViewModel: ObservableObject {
                     password: state.password
                 )
                 onAction(.loginSuccess)
+                onLoginSuccess?(user)
             } catch let error as AuthError {
                 onAction(.loginFailure(error.errorDescription ?? "Unknown error"))
             } catch {
@@ -64,6 +67,7 @@ public final class LoginViewModel: ObservableObject {
             do {
                 let user = try await googleSignInUseCase.execute()
                 onAction(.loginSuccess)
+                onLoginSuccess?(user)
             } catch let error as AuthError {
                 if case .cancelled = error {
                     state.isLoading = false

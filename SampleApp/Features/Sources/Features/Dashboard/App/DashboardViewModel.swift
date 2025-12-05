@@ -14,17 +14,20 @@ public final class DashboardViewModel : ObservableObject {
     public init() {}
     
     public func onAction(_ action: DashboardAction) {
-        
+
         switch action {
         case .ShowLogoutAlertDialog:
             if !self.state.isLogoutAlertDialogVisible {
                 self.state.isLogoutAlertDialogVisible = true
             }
-            
+
         case .ShowSettings:
             if !self.state.isSettingsVisible {
                 self.state.isSettingsVisible = true
             }
+
+        case .Logout:
+            break
         }
     }
 }

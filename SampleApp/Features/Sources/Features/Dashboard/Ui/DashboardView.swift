@@ -10,6 +10,7 @@ import DesignSystem
 
 public struct DashboardView : View {
     @StateObject private var viewModel = DashboardViewModel()
+    @EnvironmentObject private var authViewModel: AuthViewModel
 
     public init() {}
 
@@ -25,7 +26,7 @@ public struct DashboardView : View {
         .alert(L10n.Dashboard.Alert.confirmLogout, isPresented: $viewModel.state.isLogoutAlertDialogVisible) {
             Button(L10n.Dashboard.Alert.Button.cancel, role: .cancel) {}
             Button(L10n.Dashboard.Alert.Button.logout, role: .destructive) {
-                // Obsługa wylogowania
+                authViewModel.signOut()
             }
         }
     }

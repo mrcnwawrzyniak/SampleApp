@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-public enum MainRoute: Hashable {
-    case login
-    case dashboard
-}
-
 @MainActor
 public class MainRouter: ObservableObject {
     @Published var path = NavigationPath()

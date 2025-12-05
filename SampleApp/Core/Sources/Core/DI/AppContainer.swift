@@ -19,4 +19,12 @@ public extension Container {
     var googleSignInUseCase: Factory<GoogleSignInUseCase> {
         self { DefaultGoogleSignInUseCase(authRepository: self.authRepository()) }
     }
+
+    var getCurrentUserUseCase: Factory<GetCurrentUserUseCase> {
+        self { DefaultGetCurrentUserUseCase(authRepository: self.authRepository()) }
+    }
+
+    var signOutUseCase: Factory<SignOutUseCase> {
+        self { DefaultSignOutUseCase(authRepository: self.authRepository()) }
+    }
 }

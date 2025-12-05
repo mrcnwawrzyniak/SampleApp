@@ -10,9 +10,10 @@ import DesignSystem
 
 public struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    
+    @EnvironmentObject private var authViewModel: AuthViewModel
+
     public init() {}
-    
+
     public var body: some View {
         ScrollView {
             VStack(spacing: 40) {
@@ -50,6 +51,11 @@ public struct LoginView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
         .dismissKeyboardOnTap()
+        .onAppear {
+            viewModel.onLoginSuccess = { user in
+                authViewModel.setAuthenticated(user: user)
+            }
+        }
     }
 }
 
