@@ -17,14 +17,19 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "DesignSystem", path: "../DesignSystem"),
-        .package(name: "Domain", path: "../Domain")
+        .package(name: "Domain", path: "../Domain"),
+        .package(name: "Core", path: "../Core")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Features",
-            dependencies: ["DesignSystem", "Domain"]
+            dependencies: [
+                "DesignSystem",
+                "Domain",
+                "Core"
+            ]
         ),
 
     ]

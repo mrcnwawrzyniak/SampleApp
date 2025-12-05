@@ -26,16 +26,6 @@ public struct LoginReducer {
             state.isLoading = false
             state.error = message
 
-        case .appleSignInCompleted(let result):
-            state.isLoading = false
-            switch result {
-            case .success:
-                state.isLoggedIn = true
-                state.error = nil
-            case .failure(let error):
-                state.error = error.localizedDescription
-            }
-
         case .googleSignInTapped:
             state.isLoading = true
             state.error = nil

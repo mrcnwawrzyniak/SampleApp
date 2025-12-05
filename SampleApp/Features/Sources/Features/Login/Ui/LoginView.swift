@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AuthenticationServices
 import DesignSystem
 
 public struct LoginView: View {
@@ -40,14 +39,10 @@ public struct LoginView: View {
                 .disabled(viewModel.state.isLoading)
                 
                 SeparatorView()
-                
-                SocialSignInButtonsView { request in
-                    request.requestedScopes = [.fullName, .email]
-                } onAppleCompletion: { result in
-                    viewModel.onAction(.appleSignInCompleted(result))
-                } onGoogleTap: {
+
+                SocialSignInButtonsView(onGoogleTap: {
                     viewModel.onAction(.googleSignInTapped)
-                }
+                })
             }
             .padding()
             .frame(maxWidth: 400)

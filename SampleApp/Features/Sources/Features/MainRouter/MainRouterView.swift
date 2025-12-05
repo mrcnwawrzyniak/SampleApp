@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Core
 
 public struct MainRouterView: View {
     @StateObject private var router = MainRouter()

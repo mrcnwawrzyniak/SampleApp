@@ -7,12 +7,19 @@
 
 import Foundation
 import DesignSystem
-import AuthenticationServices
+import Domain
+import Core
 
 @MainActor
 public final class LoginViewModel: ObservableObject {
+
     @Published public var state = LoginState()
-    
+    @Injected(\.credentialsSignInUseCase) private var credentialsSignInUseCase
+    @Injected(\.googleSignInUseCase) private var googleSignInUseCase
+    @Injected(\.credentialsValidator) private var credentialsValidator
+
+    public init() {}
+
     public func onAction(_ action: LoginAction) {
         LoginReducer.reduce(state: &state, action: action)
 
@@ -21,41 +28,51 @@ public final class LoginViewModel: ObservableObject {
             login()
         case .googleSignInTapped:
             handleGoogleSignIn()
-        case .appleSignInCompleted(let result):
-            handleAppleSignIn(result: result)
         default:
             break
         }
     }
 
     private func login() {
-//        Task {
-//            do {
-//                try await authService.signIn(
-//                    email: state.email, 
-//                    password: state.password
-//                )
-//                onAction(.loginSuccess)
-//            } catch {
-//                onAction(.loginFailure(error.localizedDescription))
-//            }
-//        }
-    }
-    
-    private func handleAppleSignIn(result: Result<ASAuthorization, Error>) {
-//        Task {
-//            do {
-//                let authorization = try result.get()
-//                try await authService.signInWithApple(authorization: authorization)
-//                onAction(.loginSuccess)
-//            } catch {
-//                onAction(.loginFailure(error.localizedDescription))
-//            }
-//        }
+        guard credentialsValidator.isEmailValid(email: state.email) else {
+            onAction(.loginFailure("Please enter a valid email"))
+            return
+        }
+
+        guard credentialsValidator.isPasswordValid(password: state.password) else {
+            onAction(.loginFailure("Password must be at least 6 characters"))
+            return
+        }
+
+        Task {
+            do {
+                let user = try await credentialsSignInUseCase.execute(
+                    email: state.email,
+                    password: state.password
+                )
+                onAction(.loginSuccess)
+            } catch let error as AuthError {
+                onAction(.loginFailure(error.errorDescription ?? "Unknown error"))
+            } catch {
+                onAction(.loginFailure(error.localizedDescription))
+            }
+        }
     }
 
     private func handleGoogleSignIn() {
-        
-        onAction(.loginFailure(L10n.Login.Error.googleNotImplemented))
+        Task {
+            do {
+                let user = try await googleSignInUseCase.execute()
+                onAction(.loginSuccess)
+            } catch let error as AuthError {
+                if case .cancelled = error {
+                    state.isLoading = false
+                    return
+                }
+                onAction(.loginFailure(error.errorDescription ?? "Google sign-in failed"))
+            } catch {
+                onAction(.loginFailure(error.localizedDescription))
+            }
+        }
     }
 }

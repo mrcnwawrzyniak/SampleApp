@@ -6,35 +6,17 @@
 //
 
 import SwiftUI
-import AuthenticationServices
 import DesignSystem
 
 public struct SocialSignInButtonsView: View {
-    var onAppleRequest: (ASAuthorizationAppleIDRequest) -> Void
-    var onAppleCompletion: (Result<ASAuthorization, Error>) -> Void
     var onGoogleTap: () -> Void
 
-    public init(
-        onAppleRequest: @escaping (ASAuthorizationAppleIDRequest) -> Void,
-        onAppleCompletion: @escaping (Result<ASAuthorization, Error>) -> Void,
-        onGoogleTap: @escaping () -> Void
-    ) {
-        self.onAppleRequest = onAppleRequest
-        self.onAppleCompletion = onAppleCompletion
+    public init(onGoogleTap: @escaping () -> Void) {
         self.onGoogleTap = onGoogleTap
     }
 
     public var body: some View {
         VStack(spacing: 12) {
-            SignInWithAppleButton(.signIn) { request in
-                onAppleRequest(request)
-            } onCompletion: { result in
-                onAppleCompletion(result)
-            }
-            .signInWithAppleButtonStyle(.black)
-            .frame(height: 48)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
             Button(action: onGoogleTap) {
                 HStack(spacing: 8) {
                     Image(systemName: "g.circle.fill")
@@ -45,16 +27,14 @@ public struct SocialSignInButtonsView: View {
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 6)
-
+                .padding(.vertical, 12)
             }
             .buttonStyle(.bordered)
-            
         }
     }
 }
 
 #Preview {
-    SocialSignInButtonsView { _ in } onAppleCompletion: { _ in } onGoogleTap: {}
+    SocialSignInButtonsView(onGoogleTap: {})
         .padding()
 }
