@@ -35,6 +35,14 @@ public enum L10n {
             public static let googleNotImplemented = String(localized: "login.error.googleNotImplemented", bundle: .module)
             /// "Login error" / "Błąd logowania"
             public static let loginFailed = String(localized: "login.error.loginFailed", bundle: .module)
+            /// "Email cannot be empty" / "Pole e-mail nie może być puste"
+            public static let emailEmpty = String(localized: "login.error.emailEmpty", bundle: .module)
+            /// "Password cannot be empty" / "Pole hasła nie może być puste"
+            public static let passwordEmpty = String(localized: "login.error.passwordEmpty", bundle: .module)
+            /// "Please enter a valid email" / "Wprowadź poprawny adres e-mail"
+            public static let emailInvalid = String(localized: "login.error.emailInvalid", bundle: .module)
+            /// "Password must be at least 6 characters" / "Hasło musi mieć co najmniej 6 znaków"
+            public static let passwordTooShort = String(localized: "login.error.passwordTooShort", bundle: .module)
         }
         public enum Header {
             /// "Insert your username and password here" / "Wpisz tutaj swoją nazwę użytkownika i hasło"
@@ -62,3 +70,4 @@ public enum L10n {
     /// "Password" / "Hasło"
     public static let password = String(localized: "password", bundle: .module)
 }
+

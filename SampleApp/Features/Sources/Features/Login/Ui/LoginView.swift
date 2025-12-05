@@ -18,11 +18,7 @@ public struct LoginView: View {
         ScrollView {
             VStack(spacing: 40) {
                 LoginHeaderView()
-                
-                if let message = viewModel.state.error {
-                    AuthErrorView(message: message)
-                }
-                
+             
                 LoginFieldsView(vm: viewModel)
                 
                 Button {

@@ -36,6 +36,16 @@ public final class LoginViewModel: ObservableObject {
     }
 
     private func login() {
+        if credentialsValidator.isEmailEmpty(state.email) {
+            onAction(.loginFailure("Email cannot be empty"))
+            return
+        }
+
+        if credentialsValidator.isPasswordEmpty(state.password) {
+            onAction(.loginFailure("Password cannot be empty"))
+            return
+        }
+
         guard credentialsValidator.isEmailValid(email: state.email) else {
             onAction(.loginFailure("Please enter a valid email"))
             return
@@ -80,3 +90,4 @@ public final class LoginViewModel: ObservableObject {
         }
     }
 }
+

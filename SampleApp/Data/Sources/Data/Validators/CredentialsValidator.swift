@@ -19,4 +19,16 @@ public struct CredentialsValidator {
     public func isPasswordValid(password: String) -> Bool {
         return password.count >= 6
     }
+    
+    public func isEmailEmpty(_ email: String) -> Bool {
+        return email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
+    public func isPasswordEmpty(_ password: String) -> Bool {
+        return password.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
+    public func isFieldEmpty(_ field: String) -> Bool {
+        return field.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 }
