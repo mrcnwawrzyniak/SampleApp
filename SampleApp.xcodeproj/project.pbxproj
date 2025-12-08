@@ -29,6 +29,7 @@
 		183D57EF2EDB0A030014449D /* Exceptions for "SampleApp" folder in "SampleApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AppContainer.swift,
 				Core,
 				Data,
 				DesignSystem,

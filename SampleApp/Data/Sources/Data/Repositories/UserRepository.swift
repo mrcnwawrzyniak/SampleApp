@@ -5,7 +5,7 @@ import Core
 public final class UserRepository: UserRepositoryProtocol {
     private let networkService: NetworkServiceProtocol
 
-    public init(networkService: NetworkServiceProtocol = NetworkService()) {
+    public init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
 

@@ -26,6 +26,7 @@ let package = Package(
                 .product(name: "Factory", package: "Factory"),
                 .product(name: "Alamofire", package: "Alamofire"),
                 "Domain",
+                "Core"
             ]
         ),
 

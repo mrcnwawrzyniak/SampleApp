@@ -7,7 +7,7 @@
 
 import Domain
 
-public struct DashboardState: Equatable {
+public struct DashboardState {
     var isLogoutAlertDialogVisible: Bool = false
     var isSettingsVisible: Bool = false
     var currentUser: FirebaseUser?
