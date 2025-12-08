@@ -7,10 +7,10 @@
 
 import Domain
 
-public final class DefaultGetCurrentUserUseCase: GetCurrentUserUseCase {
-    private let authRepository: AuthRepository
+public final class DefaultGetCurrentUserUseCase: GetCurrentUserUseCaseProtocol {
+    private let authRepository: AuthRepositoryProtocol
 
-    public init(authRepository: AuthRepository) {
+    public init(authRepository: AuthRepositoryProtocol) {
         self.authRepository = authRepository
     }
 

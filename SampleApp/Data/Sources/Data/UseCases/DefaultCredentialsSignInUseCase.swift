@@ -7,10 +7,10 @@
 
 import Domain
 
-public final class DefaultCredentialsSignInUseCase: CredentialsSignInUseCase {
-    private let authRepository: AuthRepository
+public final class DefaultCredentialsSignInUseCase: CredentialsSignInUseCaseProtocol {
+    private let authRepository: AuthRepositoryProtocol
 
-    public init(authRepository: AuthRepository) {
+    public init(authRepository: AuthRepositoryProtocol) {
         self.authRepository = authRepository
     }
 

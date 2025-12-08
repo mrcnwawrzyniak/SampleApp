@@ -3,7 +3,7 @@ import Domain
 import FirebaseAuth
 import GoogleSignIn
 
-public final class FirebaseAuthRepository: AuthRepository {
+public final class FirebaseAuthRepository: AuthRepositoryProtocol {
 
     public init() {}
 

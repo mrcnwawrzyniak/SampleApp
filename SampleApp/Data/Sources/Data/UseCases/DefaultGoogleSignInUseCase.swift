@@ -7,10 +7,10 @@
 
 import Domain
 
-public final class DefaultGoogleSignInUseCase: GoogleSignInUseCase {
-    private let authRepository: AuthRepository
+public final class DefaultGoogleSignInUseCase: GoogleSignInUseCaseProtocol {
+    private let authRepository: AuthRepositoryProtocol
 
-    public init(authRepository: AuthRepository) {
+    public init(authRepository: AuthRepositoryProtocol) {
         self.authRepository = authRepository
     }
 

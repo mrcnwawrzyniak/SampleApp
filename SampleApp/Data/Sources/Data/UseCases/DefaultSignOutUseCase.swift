@@ -7,10 +7,10 @@
 
 import Domain
 
-public final class DefaultSignOutUseCase: SignOutUseCase {
-    private let authRepository: AuthRepository
+public final class DefaultSignOutUseCase: SignOutUseCaseProtocol {
+    private let authRepository: AuthRepositoryProtocol
 
-    public init(authRepository: AuthRepository) {
+    public init(authRepository: AuthRepositoryProtocol) {
         self.authRepository = authRepository
     }
 

@@ -3,7 +3,7 @@ import Domain
 import Data
 
 public extension Container {
-    var authRepository: Factory<AuthRepository> {
+    var authRepository: Factory<AuthRepositoryProtocol> {
         self { FirebaseAuthRepository() }
             .singleton
     }
@@ -12,19 +12,19 @@ public extension Container {
         self { CredentialsValidator() }
     }
 
-    var credentialsSignInUseCase: Factory<CredentialsSignInUseCase> {
+    var credentialsSignInUseCase: Factory<CredentialsSignInUseCaseProtocol> {
         self { DefaultCredentialsSignInUseCase(authRepository: self.authRepository()) }
     }
 
-    var googleSignInUseCase: Factory<GoogleSignInUseCase> {
+    var googleSignInUseCase: Factory<GoogleSignInUseCaseProtocol> {
         self { DefaultGoogleSignInUseCase(authRepository: self.authRepository()) }
     }
 
-    var getCurrentUserUseCase: Factory<GetCurrentUserUseCase> {
+    var getCurrentUserUseCase: Factory<GetCurrentUserUseCaseProtocol> {
         self { DefaultGetCurrentUserUseCase(authRepository: self.authRepository()) }
     }
 
-    var signOutUseCase: Factory<SignOutUseCase> {
+    var signOutUseCase: Factory<SignOutUseCaseProtocol> {
         self { DefaultSignOutUseCase(authRepository: self.authRepository()) }
     }
 }

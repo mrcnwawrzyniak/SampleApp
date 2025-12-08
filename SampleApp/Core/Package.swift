@@ -17,6 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/hmlongco/Factory.git", from: "2.3.0"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.9.0"),
         .package(name: "Domain", path: "../Domain"),
         .package(name: "Data", path: "../Data")
     ],
@@ -27,6 +28,7 @@ let package = Package(
             name: "Core",
             dependencies: [
                 .product(name: "Factory", package: "Factory"),
+                .product(name: "Alamofire", package: "Alamofire"),
                 "Domain",
                 "Data",
             ]
