@@ -1,6 +1,6 @@
 import Foundation
 
-public struct User: Sendable {
+public struct FirebaseUser: Sendable {
     public let id: String
     public let email: String?
     public let displayName: String?

@@ -7,14 +7,14 @@
 
 import Domain
 
-public final class DefaultCredentialsSignInUseCase: CredentialsSignInUseCaseProtocol {
+public final class CredentialsSignInUseCase: CredentialsSignInUseCaseProtocol {
     private let authRepository: AuthRepositoryProtocol
 
     public init(authRepository: AuthRepositoryProtocol) {
         self.authRepository = authRepository
     }
 
-    public func execute(email: String, password: String) async throws -> User {
+    public func execute(email: String, password: String) async throws -> FirebaseUser {
         try await authRepository.signInWithCredentials(email: email, password: password)
     }
 }
