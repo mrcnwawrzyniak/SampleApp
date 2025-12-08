@@ -6,6 +6,6 @@
 //
 
 public protocol GoogleSignInUseCaseProtocol: Sendable {
-    func execute() async throws -> User
+    func execute() async throws -> FirebaseUser
 }
 

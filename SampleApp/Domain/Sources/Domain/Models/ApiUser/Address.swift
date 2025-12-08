@@ -1,5 +1,13 @@
+//
+//  Address.swift
+//  Domain
+//
+//  Created by Marcin Wawrzyniak on 08/12/2025.
+//
 
-public struct Address: Equatable, Codable {
+
+
+public struct Address: Equatable, Codable, Sendable {
     public let street: String
     public let suite: String
     public let city: String

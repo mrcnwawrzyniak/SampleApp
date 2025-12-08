@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol GetApiUsersUseCaseProtocol {
+    func execute() async throws -> [ApiUser]
+}

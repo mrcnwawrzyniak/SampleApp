@@ -1,4 +1,4 @@
 public protocol GetCurrentUserUseCaseProtocol: Sendable {
-    func execute() async -> User?
+    func execute() async -> FirebaseUser?
 }
 

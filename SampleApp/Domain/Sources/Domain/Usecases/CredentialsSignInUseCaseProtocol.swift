@@ -6,6 +6,6 @@
 //
 
 public protocol CredentialsSignInUseCaseProtocol: Sendable {
-    func execute(email: String, password: String) async throws -> User
+    func execute(email: String, password: String) async throws -> FirebaseUser
 }
 

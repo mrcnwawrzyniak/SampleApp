@@ -18,7 +18,7 @@ public final class LoginViewModel: ObservableObject {
     @Injected(\.googleSignInUseCase) private var googleSignInUseCase
     @Injected(\.credentialsValidator) private var credentialsValidator
 
-    public var onLoginSuccess: ((User) -> Void)?
+    public var onLoginSuccess: ((FirebaseUser) -> Void)?
 
     public init() {}
 

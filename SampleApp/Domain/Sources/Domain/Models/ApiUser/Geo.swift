@@ -1,4 +1,12 @@
-public struct Geo: Equatable, Codable {
+//
+//  Geo.swift
+//  Domain
+//
+//  Created by Marcin Wawrzyniak on 08/12/2025.
+//
+
+
+public struct Geo: Equatable, Codable, Sendable {
     public let lat: String
     public let lng: String
 

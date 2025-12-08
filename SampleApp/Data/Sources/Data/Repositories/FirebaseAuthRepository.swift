@@ -7,7 +7,7 @@ public final class FirebaseAuthRepository: AuthRepositoryProtocol {
 
     public init() {}
 
-    public func signInWithCredentials(email: String, password: String) async throws -> Domain.User {
+    public func signInWithCredentials(email: String, password: String) async throws -> FirebaseUser {
         do {
             let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
             return authResult.user.toDomainUser(provider: .email)
@@ -16,7 +16,7 @@ public final class FirebaseAuthRepository: AuthRepositoryProtocol {
         }
     }
 
-    public func signInWithGoogle() async throws -> Domain.User {
+    public func signInWithGoogle() async throws -> FirebaseUser {
         guard let clientID = Auth.auth().app?.options.clientID else {
             throw AuthError.unknown(NSError(
                 domain: "GoogleSignIn",
@@ -76,7 +76,7 @@ public final class FirebaseAuthRepository: AuthRepositoryProtocol {
         }
     }
 
-    public func getCurrentUser() async -> Domain.User? {
+    public func getCurrentUser() async -> FirebaseUser? {
         guard let firebaseUser = Auth.auth().currentUser else {
             return nil
         }
@@ -119,8 +119,8 @@ public final class FirebaseAuthRepository: AuthRepositoryProtocol {
 }
 
 private extension FirebaseAuth.User {
-    func toDomainUser(provider: AuthProvider) -> Domain.User {
-        Domain.User(
+    func toDomainUser(provider: AuthProvider) -> Domain.FirebaseUser {
+        Domain.FirebaseUser(
             id: uid,
             email: email,
             displayName: displayName,

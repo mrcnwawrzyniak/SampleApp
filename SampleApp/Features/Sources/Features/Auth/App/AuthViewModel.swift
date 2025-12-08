@@ -51,7 +51,7 @@ public class AuthViewModel: ObservableObject {
         }
     }
 
-    public func setAuthenticated(user: User) {
+    public func setAuthenticated(user: FirebaseUser) {
         authState.currentUser = user
         authState.isAuthenticated = true
         authState.error = nil

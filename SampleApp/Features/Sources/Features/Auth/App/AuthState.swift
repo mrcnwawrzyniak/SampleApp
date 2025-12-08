@@ -11,7 +11,7 @@ import Domain
 public struct AuthState: Equatable {
     public var isAuthenticated: Bool = false
     public var isAuthenticating: Bool = false
-    public var currentUser: User? = nil
+    public var currentUser: FirebaseUser? = nil
     public var error: String? = nil
 
     public static func == (lhs: AuthState, rhs: AuthState) -> Bool {
