@@ -1,5 +1,6 @@
 import SwiftUI
 import Domain
+import DesignSystem
 
 struct CurrentUserHeaderView: View {
     let user: FirebaseUser
@@ -84,9 +85,9 @@ struct CurrentUserHeaderView: View {
     private var providerName: String {
         switch user.provider {
         case .email:
-            return "Email"
+            return L10n.Dashboard.Provider.email
         case .google:
-            return "Google"
+            return L10n.Dashboard.Provider.google
         }
     }
 

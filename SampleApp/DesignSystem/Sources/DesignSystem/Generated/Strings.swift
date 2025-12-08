@@ -17,11 +17,31 @@ public enum L10n {
             public static let confirmLogout = String(localized: "dashboard.alert.confirmLogout", bundle: .module)
         }
         public enum Button {
+            /// "Refresh" / "Odśwież"
+            public static let refresh = String(localized: "dashboard.button.refresh", bundle: .module)
             /// "Show Logout Alert" / "Pokaż alert wylogowania"
             public static let logoutAlert = String(localized: "dashboard.button.logoutAlert", bundle: .module)
             /// "Show Settings" / "Pokaż ustawienia"
             public static let settings = String(localized: "dashboard.button.settings", bundle: .module)
         }
+        public enum Empty {
+            /// "Pull to refresh or tap the refresh button" / "Pociągnij aby odświeżyć lub naciśnij przycisk odświeżania"
+            public static let message = String(localized: "dashboard.empty.message", bundle: .module)
+            /// "No users loaded" / "Brak załadowanych użytkowników"
+            public static let title = String(localized: "dashboard.empty.title", bundle: .module)
+        }
+        public enum Provider {
+            /// "Email" / "E-mail"
+            public static let email = String(localized: "dashboard.provider.email", bundle: .module)
+            /// "Google" / "Google"
+            public static let google = String(localized: "dashboard.provider.google", bundle: .module)
+        }
+        public enum Section {
+            /// "API Users" / "Użytkownicy API"
+            public static let apiUsers = String(localized: "dashboard.section.apiUsers", bundle: .module)
+        }
+        /// "Dashboard" / "Panel główny"
+        public static let title = String(localized: "dashboard.title", bundle: .module)
     }
 
     // MARK: - Login

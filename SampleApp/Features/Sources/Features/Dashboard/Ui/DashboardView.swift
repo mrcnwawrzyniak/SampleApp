@@ -28,7 +28,7 @@ public struct DashboardView : View {
                     Button(action: {
                         viewModel.onAction(.RefreshUsers)
                     }) {
-                        Label("Refresh", systemImage: "arrow.clockwise")
+                        Label(L10n.Dashboard.Button.refresh, systemImage: "arrow.clockwise")
                             .font(.subheadline)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 8)
@@ -62,7 +62,7 @@ public struct DashboardView : View {
 
                 // Section Title
                 HStack {
-                    Text("API Users")
+                    Text(L10n.Dashboard.Section.apiUsers)
                         .font(.title2)
                         .fontWeight(.bold)
                     Spacer()
@@ -102,10 +102,10 @@ public struct DashboardView : View {
                         Image(systemName: "person.3.fill")
                             .font(.system(size: 50))
                             .foregroundColor(.gray)
-                        Text("No users loaded")
+                        Text(L10n.Dashboard.Empty.title)
                             .font(.headline)
                             .foregroundColor(.secondary)
-                        Text("Pull to refresh or tap the refresh button")
+                        Text(L10n.Dashboard.Empty.message)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -114,7 +114,7 @@ public struct DashboardView : View {
             }
             .padding(.vertical)
         }
-        .navigationTitle("Dashboard")
+        .navigationTitle(L10n.Dashboard.title)
         .navigationBarTitleDisplayMode(.large)
         .refreshable {
             viewModel.onAction(.RefreshUsers)
